@@ -83,7 +83,7 @@ public class Perceptron : MonoBehaviour {
 			}
 			for(int t = 0; t < ts.Length; t++)
 			{
-				double error = ts[j].output - CalcOutput(j);
+				double error = ts[t].output - CalcOutput(t);
 				totalError += Mathf.Abs((float)error);
 			}
 			Debug.Log("TOTAL ERROR: " + totalError);
