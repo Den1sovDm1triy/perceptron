@@ -54,7 +54,6 @@ public class Perceptron : MonoBehaviour {
 	void UpdateWeights(int j)
 	{
 		double error = ts[j].output - CalcOutput(j);
-		totalError += Mathf.Abs((float)error);
 		for(int i = 0; i < weights.Length; i++)
 		{			
 			weights[i] = weights[i] + error*ts[j].input[i]; 
@@ -81,6 +80,11 @@ public class Perceptron : MonoBehaviour {
 			{
 				UpdateWeights(t);
 				Debug.Log("W1: " + (weights[0]) + " W2: " + (weights[1]) + " B: " + bias);
+			}
+			for(int t = 0; t < ts.Length; t++)
+			{
+				double error = ts[t].output - CalcOutput(t);
+				totalError += Mathf.Abs((float)error);
 			}
 			Debug.Log("TOTAL ERROR: " + totalError);
 		}
